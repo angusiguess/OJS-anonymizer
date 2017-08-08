@@ -1,11 +1,9 @@
 # pdfAnonymizer
-
 ===============
 
 A plugin that removes identifying properties from an uploaded PDF in ojs
 
 # About
-
 ===============
 
 This plugin for OJS removes identifying properties from all PDF submission
@@ -14,13 +12,10 @@ of a PDF, but only from its properties. The user is expected to anonymize
 the contents.
 
 # Requirements
-
 ===============
 
 # Configuration
-
 ===============
 
 # Usage
-
 ===============
