@@ -1,5 +1,4 @@
 # pdfAnonymizer
-===============
 
 A plugin that removes identifying properties from an uploaded PDF in ojs
 
