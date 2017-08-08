@@ -1,10 +1,10 @@
-* pdfAnonymizer
+# pdfAnonymizer
 
 ===============
 
 A plugin that removes identifying properties from an uploaded PDF in ojs
 
-* About
+# About
 
 ===============
 
@@ -13,14 +13,14 @@ uploads. Note that it does not remove identifying data from the *contents*
 of a PDF, but only from its properties. The user is expected to anonymize
 the contents.
 
-* Requirements
+# Requirements
 
 ===============
 
-* Configuration
+# Configuration
 
 ===============
 
-* Usage
+# Usage
 
 ===============
