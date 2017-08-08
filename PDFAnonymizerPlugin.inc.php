@@ -14,6 +14,25 @@
 
 import('lib.pkp.classes.plugins.GenericPlugin');
 
+class PDFAnonymizerPlugin extends GenericPlugin {
 
+		function register($category, $path) {
+				return true;
+		}
+
+		function getName() {
+				return 'pdfAnonymizerPlugin';
+		}
+
+		function getDisplayName() {
+				return __('plugins.generic.pdfAnonymizer.displayName');
+		}
+
+		function getDescription() {
+				return __('plugins.generic.pdfAnonymizer.description');
+		}
+
+
+}
 
 ?>
