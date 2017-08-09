@@ -17,7 +17,8 @@ import('lib.pkp.classes.plugins.GenericPlugin');
 class PDFAnonymizerPlugin extends GenericPlugin {
 
 		function register($category, $path) {
-				return true;
+				$success = parent::register($category, $path);
+				return $success;
 		}
 
 		function getName() {
