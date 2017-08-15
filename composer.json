@@ -1,6 +1,4 @@
 {
     "require": {
-        "tecnickcom/tcpdf": "^6.2",
-        "howtomakeaturn/pdfinfo": "^1.1"
     }
 }
