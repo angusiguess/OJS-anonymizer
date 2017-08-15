@@ -47,7 +47,7 @@ class PDFAnonymizerPlugin extends GenericPlugin {
 				// Remove exif metadata
 				$output = "";
 				$exifSuccess = 0;
-				exec("exiftool -all:all= " . $fileName,
+				exec("exiftool -all:all= " . escapeshellarg($fileName),
 						 $output,
 						 $exifSuccess);
 				$linearizeSuccess = 0;
@@ -55,7 +55,7 @@ class PDFAnonymizerPlugin extends GenericPlugin {
 						unlink($fileName . "_original");
 						$tempFilePath = $fileName . "tmp";
 						// Linearizing the pdf removes any pre-exif metadata.
-						exec("qpdf --linearize " . $fileName . " " . $tempFilePath,
+						exec("qpdf --linearize " . escapeshellarg($fileName) . " " . escapeshellarg($tempFilePath),
 								 $output,
 								 $linearizeSuccess);
 						if($linearizeSuccess == 0) {
