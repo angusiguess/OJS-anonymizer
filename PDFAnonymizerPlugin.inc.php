@@ -37,36 +37,6 @@ class PDFAnonymizerPlugin extends GenericPlugin {
 				return __('plugins.generic.pdfAnonymizer.description');
 		}
 
-
-		/**
-		 * Scrub EXIF Data from a file by filename
-		 * @param $fileName string
-		 * @return boolean
-		 */
-		function scrubExif($fileName) {
-				// Remove exif metadata
-				$output = "";
-				$exifSuccess = 0;
-				exec("exiftool -all:all= " . escapeshellarg($fileName),
-						 $output,
-						 $exifSuccess);
-				$linearizeSuccess = 0;
-				if($exifSuccess == 0) {
-						unlink($fileName . "_original");
-						$tempFilePath = $fileName . "tmp";
-						// Linearizing the pdf removes any pre-exif metadata.
-						exec("qpdf --linearize " . escapeshellarg($fileName) . " " . escapeshellarg($tempFilePath),
-								 $output,
-								 $linearizeSuccess);
-						if($linearizeSuccess == 0) {
-								unlink($fileName);
-								rename($tempFilePath, $fileName);
-						}
-				}
-
-			  return $exifSuccess && ($linearizeSuccess == 0);
-		}
-
 		/**
 		 * File upload hook that scrubs metadata from PDF submissions as they're uploaded.
 		 * @param $hookName string
@@ -78,11 +48,23 @@ class PDFAnonymizerPlugin extends GenericPlugin {
 				$destFileName = $args[1];
 				$fileType = $args[2];
 				$returnValue = $args[3];
+				$output = "";
+				$returnCode = 0;
 
-				if ($fileType === 'pdf') {
-						$returnValue = $this->scrubExif($destFileName);
+				$command = Config::getVar('anon', "anon[${fileType}]");
+				$command = str_replace("\$fileName", $destFileName, $command);
+
+				if(!empty($command)) {
+						exec($command, $output, $returnCode);
 				}
-				return $returnValue;
+
+				if($returnCode != 0) {
+						error_log("Anonymization command failed, return code: $returnCode");
+						error_log(var_dump($output));
+						debug_backtrace();
+				}
+
+				return $returnCode == 0;
 		}
 
 
