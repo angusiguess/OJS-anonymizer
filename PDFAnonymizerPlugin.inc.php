@@ -38,7 +38,7 @@ class PDFAnonymizerPlugin extends GenericPlugin {
 		}
 
 		/**
-		 * File upload hook that scrubs metadata from PDF submissions as they're uploaded.
+		 * File upload hook that scrubs metadata from submissions as they're uploaded.
 		 * @param $hookName string
 		 * @param $args array
 		 * @return boolean
@@ -60,7 +60,6 @@ class PDFAnonymizerPlugin extends GenericPlugin {
 
 				if($returnCode != 0) {
 						error_log("Anonymization command failed, return code: $returnCode");
-						error_log(var_dump($output));
 						debug_backtrace();
 				}
 
