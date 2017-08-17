@@ -1,21 +1,21 @@
 <?php
 
 /**
- * @file PDFAnonymizerPlugin.inc.php
+ * @file AnonymizerPlugin.inc.php
  *
  * Copyright (c) 2017 Simon Fraser University Library
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @package plugins.generic.pdfAnonymizer
- * @class PDFAnonymizerPlugin
+ * @package plugins.generic.anonymizer
+ * @class AnonymizerPlugin
  * @ingroup plugins
- * @brief Plugin that will remove identifying information from PDFs on upload
+ * @brief Plugin that will remove identifying information from submissions on upload
  */
 
 import('lib.pkp.classes.plugins.GenericPlugin');
 
-class PDFAnonymizerPlugin extends GenericPlugin {
+class AnonymizerPlugin extends GenericPlugin {
 
 		function register($category, $path) {
 				$success = parent::register($category, $path);
@@ -26,15 +26,15 @@ class PDFAnonymizerPlugin extends GenericPlugin {
 		}
 
 		function getName() {
-				return 'pdfAnonymizerPlugin';
+				return 'anonymizerPlugin';
 		}
 
 		function getDisplayName() {
-				return __('plugins.generic.pdfAnonymizer.displayName');
+				return __('plugins.generic.anonymizer.displayName');
 		}
 
 		function getDescription() {
-				return __('plugins.generic.pdfAnonymizer.description');
+				return __('plugins.generic.anonymizer.description');
 		}
 
 		/**

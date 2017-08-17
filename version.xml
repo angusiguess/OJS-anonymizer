@@ -12,10 +12,10 @@
 -->
 
 <version>
-	<application>pdfAnonymizer</application>
+	<application>Anonymizer</application>
 	<type>plugins.generic</type>
 	<release>0.0.1.0</release>
 	<date>2017-08-08</date>
 	<lazy-load>1</lazy-load>
-	<class>PDFAnonymizerPlugin</class>
+	<class>AnonymizerPlugin</class>
 </version>

@@ -12,6 +12,6 @@
  -->
 
 <locale name="en_US" full_name="U.S. English">
-	<message key="plugins.generic.pdfAnonymizer.displayName">PDF Anonymizer</message>
-	<message key="plugins.generic.pdfAnonymizer.description">A plugin for removing identifying data from PDF uploads.</message>
+	<message key="plugins.generic.anonymizer.displayName">Anonymizer</message>
+	<message key="plugins.generic.anonymizer.description">A plugin for removing identifying data from OJS submissions.</message>
 </locale>
