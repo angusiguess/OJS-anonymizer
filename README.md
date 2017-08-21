@@ -24,7 +24,7 @@ Copy the plugin contents to plugins/generic folder.
 
 2. Install the command line tool you'd like to use to remove metadata from a document.
 
-In the OJS config.inc.php, under the section ~[anon]~, add the command line invocation
+In the OJS config.inc.php, under the section ```[anon]```, add the command line invocation
 for the desired file type, where file type can be **default**, **excel**, **html**, **image**,
 **pdf**, **word**, **epub** or **zip**.
 
