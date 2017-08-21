@@ -63,7 +63,7 @@ class AnonymizerPlugin extends GenericPlugin {
 		$returnCode = 0;
 
 		$command = Config::getVar('anon', "anon[${fileType}]");
-		$command = str_replace('$fileName', escapeshellarg($destFileName), $command);
+		$command = str_replace('$fileName', $destFileName, $command);
 
 		if(!empty($command)) {
 			exec($command, $output, $returnCode);
@@ -71,13 +71,12 @@ class AnonymizerPlugin extends GenericPlugin {
 
 		if($returnCode != 0) {
 			error_log("Anonymization command failed, command: $command return code: $returnCode");
-			error_log("Command output: $output");
+			error_log("Command output: " . var_dump($output));
 		}
 
+		$returnValue = ($returnCode == 0);
 		return $returnCode == 0;
 	}
-
-
 }
 
 ?>
